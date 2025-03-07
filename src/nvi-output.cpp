@@ -137,14 +137,14 @@ void nvi_output_update(void *data, obs_data_t *settings)
 
 void *nvi_output_create(obs_data_t *settings, obs_output_t *output)
 {
-	auto o = (struct ndi_output *)bzalloc(sizeof(nvi_output));
+	auto o = (struct nvi_output *)bzalloc(sizeof(nvi_output));
 	nvi_output_update(o, settings);
 	return o;
 }
 
 void nvi_output_destroy(void *data)
 {
-	auto o = (struct ndi_output *)data;
+	auto o = (struct nvi_output *)data;
 	bfree(o);
 }
 
@@ -258,19 +258,19 @@ void nvi_output_audio(void *data, struct audio_data *frame)
 
 struct obs_output_info create_nvi_output_info()
 {
-	struct obs_output_info ndi_output_info = {};
-	ndi_output_info.id = "ndi_output";
-	ndi_output_info.flags = OBS_OUTPUT_AV;
-	ndi_output_info.get_name = nvi_output_getname;
-	ndi_output_info.get_properties = nvi_output_getproperties;
-	ndi_output_info.get_defaults = nvi_output_getdefaults;
-	ndi_output_info.create = nvi_output_create;
-	ndi_output_info.destroy = nvi_output_destroy;
-	ndi_output_info.update = nvi_output_update;
-	ndi_output_info.start = nvi_output_start;
-	ndi_output_info.stop = nvi_output_stop;
-	ndi_output_info.raw_video = nvi_output_video;
-	ndi_output_info.raw_audio = nvi_output_audio;
+	struct obs_output_info nvi_output_info = {};
+	nvi_output_info.id = "nvi_output";
+	nvi_output_info.flags = OBS_OUTPUT_AV;
+	nvi_output_info.get_name = nvi_output_getname;
+	nvi_output_info.get_properties = nvi_output_getproperties;
+	nvi_output_info.get_defaults = nvi_output_getdefaults;
+	nvi_output_info.create = nvi_output_create;
+	nvi_output_info.destroy = nvi_output_destroy;
+	nvi_output_info.update = nvi_output_update;
+	nvi_output_info.start = nvi_output_start;
+	nvi_output_info.stop = nvi_output_stop;
+	nvi_output_info.raw_video = nvi_output_video;
+	nvi_output_info.raw_audio = nvi_output_audio;
 
-	return ndi_output_info;
+	return nvi_output_info;
 }

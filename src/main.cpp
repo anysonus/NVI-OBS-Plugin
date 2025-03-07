@@ -39,7 +39,7 @@ bool obs_module_load(void)
 				return;
 			obs_data_t *settings = obs_data_create();
 			obs_data_set_string(settings, "nvi_name", "obs");
-			main_out = obs_output_create("ndi_output", "NVI Main Output", settings, nullptr);
+			main_out = obs_output_create("nvi_output", "NVI Main Output", settings, nullptr);
 			obs_data_release(settings);
 			if (!obs_output_start(main_out)) {
 				QMessageBox::information(nullptr, "Error", "NVI Output Failed", QMessageBox::Ok);

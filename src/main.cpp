@@ -52,7 +52,7 @@ bool obs_module_load(void)
 		return true;
 	}
 
-	blog(LOG_ERROR, "Can't find the NDI library");
+	blog(LOG_ERROR, "Can't find the NVI library");
 	return false;
 }
 
